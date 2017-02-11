@@ -2,21 +2,31 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Event Madness</title>
+    <title>Monthly Salary Spend</title>
     <script src="vendor/jquery.js" charset="utf-8"></script>
     <script src="client.js" charset="utf-8"></script>
   </head>
   <body>
-    <h1>jQuery Events!</h1>
+    <h1>Employee Payroll Cost Calculator</h1>
     <label for="firstName">First Name</label>
-    <input type="text" id="firstName" placeholder="First Name">
-    <label for="middleName">Middle Name</label>
-    <input type="text" id="middleName" placeholder="Middle Name">
+    <input type="text" id="firstName" placeholder="First Name" />
     <label for="lastName">Last Name</label>
-    <input type="text" id="lastName" placeholder="Last Name">
-    <button type="button" name="button" id="clickMe">Click Me!</button>
-    <div id="nameContainer">
+    <input type="text" id="lastName" placeholder="Last Name" />
+    <label for="empID">Employee ID</label>
+    <input type="text" id="empId" placeholder="Employee ID" />
+    <label for="jobTitle">Job Title</label>
+    <input type="text" id="empTitle" placeholder="Job Title" />
+    <label for="empSalary">Annual Salary</label>
+    <input type="text" id="empSalary" placeholder="Annual Salary" />
+    <button type="button" name="addEmpBtn" id="addEmpBtn">Add Employee to List</button>
+
+    <div id="empList">
+      <h2>Employee List</h2>
       <!-- This is just an empty container. Just so that we can use it later. -->
+    </div>
+    <div id="monthlySpend">
+      <h2>Monthly Salary Spend: </h2>
+      <p></p><!-- This is just an empty container.  Just so that we can use it later -->
     </div>
   </body>
 </html>
