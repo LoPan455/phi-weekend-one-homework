@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Monthly Salary Spend</title>
-    <script src="vendor/jquery.js" charset="utf-8"></script>
-    <script src="client.js" charset="utf-8"></script>
-  </head>
-  <body>
-    <h1>Employee Payroll Cost Calculator</h1>
+<head>
+  <meta charset="utf-8">
+  <title>Monthly Salary Spend</title>
+  <script src="vendor/jquery.js" charset="utf-8"></script>
+  <script src="client.js" charset="utf-8"></script>
+</head>
+<body>
+  <h1>Employee Payroll Cost Calculator</h1>
+  <div id="inputSection">
+
+
     <label for="firstName">First Name</label>
     <input type="text" id="firstName" placeholder="First Name" />
     <label for="lastName">Last Name</label>
@@ -20,13 +23,16 @@
     <input type="text" id="empSalary" placeholder="Annual Salary" />
     <button type="button" name="addEmpBtn" id="addEmpBtn">Add Employee to List</button>
 
-    <div id="empList">
-      <h2>Employee List</h2>
-      <!-- This is just an empty container. Just so that we can use it later. -->
-    </div>
-    <div id="monthlySpend">
-      <h2>Monthly Salary Spend: </h2>
-      <p></p><!-- This is just an empty container.  Just so that we can use it later -->
-    </div>
-  </body>
+    
+  </div>
+
+  <div id="empList">
+    <h2>Employee List</h2>
+    <!-- This is just an empty container. Just so that we can use it later. -->
+  </div>
+  <div id="monthlySpend">
+    <h2>Monthly Salary Spend: </h2>
+    <p></p><!-- This is just an empty container.  Just so that we can use it later -->
+  </div>
+</body>
 </html>

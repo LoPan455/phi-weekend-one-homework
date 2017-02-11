@@ -10,11 +10,13 @@ $(document).ready(function(){
     var empTitle = $('#empTitle').val(); // gets the value in empTitle field
     var empSalary = Number($('#empSalary').val()); // gets the value in empSalary field
     var fullEmpString = firstName + ' ' + lastName + ' ' + empId + ' ' + empTitle + ' ' + empSalary; //concatenates all the employee data together in one variable.
-    $('#empList').append('<p>' + fullEmpString + '<button type="button" name="deleteButton" id="deleteButton">Delete Me!</button></p>');
+    $('#empList').append('<p data-empId="' + empId +'" data-empSalary="' + empSalary + '">' + fullEmpString +
+    '<button type="button" name="deleteButton" id="deleteButton">Delete Me!</button></p>');
+    console.log($('#empList > p').data('empsalary'));
     totalSalarySpend += empSalary; //increments the total salary spend by each added employee's salary
     monthlySalarySpend = totalSalarySpend / 12;
     rndMonthlySalarySpend = Number(monthlySalarySpend.toFixed(2))
-    $('#monthlySpend > p').html(rndMonthlySalarySpend);
+    $('#monthlySpend > p').html('$' + rndMonthlySalarySpend);
     $('#firstName').val('');
     $('#lastName').val('');
     $('#empId').val('');
@@ -26,6 +28,12 @@ $(document).ready(function(){
   //Adding in the listener and functionality for the Delete Me! button
   $('#empList').on('click', '#deleteButton', function(){
     console.log('deleteButton was clicked');
+    totalSalarySpend -= $(this).parent().data('empsalary');
+    monthlySalarySpend = totalSalarySpend / 12;
+    rndMonthlySalarySpend = Number(monthlySalarySpend.toFixed(2))
+    $('#monthlySpend > p').html('$' + rndMonthlySalarySpend);
+
+    // totalSalarySpend -= $(this).data('empsalary')
     $(this).parent().remove();
   });
 
