@@ -8,38 +8,41 @@ $(document).ready(function(){
     var empId = $('#empId').val(); // gets the value in empID field
     var empTitle = $('#empTitle').val(); // gets the value in empTitle field
     var empSalary = Number($('#empSalary').val()); // gets the value in empSalary field
-    var fullEmpString = firstName + ' ' + lastName + ' ' + empId + ' ' + empTitle + ' ' + '$ '+ empSalary; //concatenates all the employee data together in one variable.
-    $('#empList').append('<p data-empId="' + empId +'" data-empSalary="' + empSalary + '">' + fullEmpString +
-    '<button type="button" name="deleteButton" id="deleteButton">Delete Me!</button></p>');
+    $('#empTable').append('<tr>'+
+      '<td data-firstname="'+firstName+'">'+firstName+
+      '</td><td data-lastname="'+lastName+'">'+lastName+
+      '</td><td data-empid="'+empId+'">'+empId+
+      '</td><td data-empTitle="'+empTitle+'">'+empTitle+
+      '</td><td data-empsalary="'+empSalary+'" id="salary">'+empSalary+'</td>'+
+      '<td><button type="button" name="deleteButton" id="deleteButton">Delete Me!</button></td>'+
+      '</tr>'
+    );
     totalSalarySpend += empSalary; //increments the total salary spend by each added employee's salary
     writePerMonthSalarySpend();
-    // monthlySalarySpend = totalSalarySpend / 12; //calculates amount spent per month on all employee salaries
-    // rndMonthlySalarySpend = Number(monthlySalarySpend.toFixed(2)) //rounds the value of monthlySalarySpend to the nearest cent
-    $('#monthlySpend > p').html('$' + rndMonthlySalarySpend); //writes the value of rndMonthlySalarySpend to the DOM
+    //$('#monthlySpend > p').html('$' + rndMonthlySalarySpend); //writes the value of rndMonthlySalarySpend to the DOM
     $('#firstName').val(''); //clears out input fields
     $('#lastName').val(''); //clears out input fields
     $('#empId').val(''); //clears out input fields
     $('#empTitle').val(''); //clears out input fields
     $('#empSalary').val(''); //clears out input fields
-
   });
 
   //Adding in the listener and functionality for the Delete Me! button
-  $('#empList').on('click', '#deleteButton', function(){
+  $('#empTable').on('click', '#deleteButton', function(){
     console.log('deleteButton was clicked');
-    totalSalarySpend -= $(this).parent().data('empsalary');
+    totalSalarySpend -= ($(this).parent().prev().data('empsalary'));
     writePerMonthSalarySpend();
-    $('#monthlySpend > p').html('$' + rndMonthlySalarySpend);
-    $(this).parent().remove();
+    $(this).parent().parent().remove();
   });
 
 });
 
-var totalSalarySpend = 0;
-var monthlySalarySpend = 0;
-function writePerMonthSalarySpend(){
-  monthlySalarySpend = totalSalarySpend / 12;
-  rndMonthlySalarySpend = Number(monthlySalarySpend.toFixed(2));
-  $('#monthlySpend > p').html('$' + rndMonthlySalarySpend)
+var totalSalarySpend = 0; //variable to get the total of all employees' annual salary
+var monthlySalarySpend = 0; //variable to get the total spend per month on all the employees Salary
 
-}
+  function writePerMonthSalarySpend(){ //runs whenever we need to calculate or re-calculate the monthly salary spend
+    monthlySalarySpend = totalSalarySpend / 12;
+    var rndMonthlySalarySpend = monthlySalarySpend.toFixed(2);
+    $('#monthlySpend > p').html('$' + rndMonthlySalarySpend);
+    return
+ }

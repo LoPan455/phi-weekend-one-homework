@@ -5,6 +5,9 @@
   <title>Monthly Salary Spend</title>
   <script src="vendor/jquery.js" charset="utf-8"></script>
   <script src="client.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="style.css">
+
+  </script>
 </head>
 <body>
   <h1>Employee Payroll Cost Calculator</h1>
@@ -23,12 +26,24 @@
     <input type="text" id="empSalary" placeholder="Annual Salary" />
     <button type="button" name="addEmpBtn" id="addEmpBtn">Add Employee to List</button>
 
-    
+
   </div>
 
-  <div id="empList">
+  <div id="empData">
     <h2>Employee List</h2>
-    <!-- This is just an empty container. Just so that we can use it later. -->
+    <table style="width:100%" id="empTable">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Employee ID</th>
+        <th>Job Title</th>
+        <th>Annual Salary</th>
+      </tr>
+
+    </table>
+
+    </div>
+
   </div>
   <div id="monthlySpend">
     <h2>Monthly Salary Spend: </h2>
