@@ -37,31 +37,3 @@ $(document).ready(function(){
 
 var totalSalarySpend = 0;
 var monthlySalarySpend = 0;
-
-
-
-
-
-
-//
-//
-//   // We can only use $('#someId') for things that exist at document ready
-//   // To select things dynamically, we use event propogation
-//   $('#nameContainer').on('click', '.deleteButton', function(){
-//
-//     $(this).parent().remove();
-//   });
-//
-//
-//
-//
-// /////
-//
-//
-// //
-// // The application should first have an input form that collects:
-// //
-// // The Employee's First and Last name
-// // The Employee's ID Number
-// // The Employee's Job Title
-// // The Employee's Salary (Yearly)
